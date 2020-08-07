@@ -59,16 +59,32 @@ public class Player : MonoBehaviour {
         }
 
         //Ereveter
-        if (col.gameObject.tag == "Ereveter")
+        if (col.gameObject.tag == "Elevator")
         {
-            if (Keyget >= col.gameObject.GetComponent<Door>().openkeynum)
+            /*if (Keyget >= col.gameObject.GetComponent<Door>().openkeynum)
             {
                 Keyget -= col.gameObject.GetComponent<Door>().openkeynum;
                 col.gameObject.GetComponent<Door>().Open();
-            }
+            }*/
+            
+            //「=」は、1つで代入。2つで等価。
+            this.gameObject.transform.parent = col.gameObject.transform;
         }
 
     }
+    private void OnCollisionExit(Collision col)
+    {
+        if (col.gameObject.tag == "Elevator")
+        {
+            /*if (Keyget >= col.gameObject.GetComponent<Door>().openkeynum)
+            {
+                Keyget -= col.gameObject.GetComponent<Door>().openkeynum;
+                col.gameObject.GetComponent<Door>().Open();
+            }*/
+            this.gameObject.transform.parent = null;
+        }
+    }
+
     private void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "key")

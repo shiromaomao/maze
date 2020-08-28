@@ -8,6 +8,7 @@ TagManager:
   - Door
   - Switch
   - Elevator
+  - Swich
   layers:
   - Default
   - TransparentFX

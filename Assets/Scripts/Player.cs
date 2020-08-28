@@ -7,8 +7,11 @@ public class Player : MonoBehaviour {
 
     public Text scoreText; //Text用変数
 
+    public bool pushedSwich;
+
     void Start() 
     {
+        pushedSwich = false;
       scoreText.text = "Key: 0"; //初期スコアを代入して表示
     }
     int Keyget = 0;
@@ -71,6 +74,19 @@ public class Player : MonoBehaviour {
             this.gameObject.transform.parent = col.gameObject.transform;
         }
 
+        if (col.gameObject.tag == "Switch" && !pushedSwich) //&&　で、「かつ」。　
+        //!は、「bool」型の値を反転（否定）　例）！＝で、「異なるなら」となる。
+        {
+            pushedSwich = true; 
+            StartCoroutine("stop3");
+        }                
+    }
+    private IEnumerator stop3() //コルーチン関数の名前
+    　　　　//  StartCoroutine("stop3");  の中身
+    {
+        //コルーチンの内容
+         yield return new WaitForSeconds(5.0f);//5秒待つ
+         pushedSwich = false;
     }
     private void OnCollisionExit(Collision col)
     {

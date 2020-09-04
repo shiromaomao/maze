@@ -43,21 +43,22 @@ public class MovingFloor : MonoBehaviour
           rb.velocity = new Vector3(4,0,0);
 　　　　　 yield return new WaitForSeconds(0.05f);
           
+        
           if( transform.position.x >= 31 )
           {
                 m_xPlus = false;
-                yield return new WaitForSeconds(5.0f);
+                yield return new WaitForSeconds(15.0f);
           } 
       }
       while( m_xPlus == false )　//falseの間波括弧の中を繰り返す
       {
           rb.velocity = new Vector3(-12,0,0);
-          yield return new WaitForSeconds(0.05f);
+          yield return new WaitForSeconds(1.0f);//(0.05f);
           
           if( transform.position.x <= -0.3f )
           {    
                 m_xPlus = true;
-                yield return new WaitForSeconds(5.0f);
+                yield return new WaitForSeconds(15.0f);
           }  
       }
     }

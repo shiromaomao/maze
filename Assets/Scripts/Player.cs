@@ -85,7 +85,7 @@ public class Player : MonoBehaviour {
     　　　　//  StartCoroutine("stop3");  の中身
     {
         //コルーチンの内容
-         yield return new WaitForSeconds(5.0f);//5秒待つ
+         yield return new WaitForSeconds(15.0f);//5秒待つ
          pushedSwich = false;
     }
     private void OnCollisionExit(Collision col)

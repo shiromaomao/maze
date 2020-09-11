@@ -9,6 +9,7 @@ TagManager:
   - Switch
   - Elevator
   - Swich
+  - Sphere
   layers:
   - Default
   - TransparentFX

@@ -6,22 +6,22 @@ using UnityEngine;
 public class Sphere : MonoBehaviour
 {
     public int count = 0;//クローン調整用
+    public GameObject original;
 
     Rigidbody rb1;
     // Start is called before the first frame update
     void Start()
     {
         rb1 = GetComponent<Rigidbody>();
-        rb1.AddForce(10,0,0,ForceMode.Impulse);//speed
+        rb1.AddForce(10, 0, 0, ForceMode.Impulse);//speed
 
         /*GameObject original = GameObject.Find("Sphere");
 		GameObject copied = Object.Instantiate(original) as GameObject;
 		copied.transform.Translate(-25,30,);*/
-    } 
+    }
     //public static Object Instantiate(Object original, Vector3 position, Quaterinon rotation);
 
-    
-    IEnumerator Pear() //voidは、return値がない型
+    /*IEnumerator Pear() //voidは、return値がない型
     {   
         if(count == 0)
         {
@@ -39,15 +39,28 @@ public class Sphere : MonoBehaviour
         GameObject copied = Object.Instantiate(original) as GameObject;//oliginalをcopiする
 	    copied.transform.Translate(-25,30,z);//copiの出てくる場所を(x=-25,y=30,z=-6~7)とする
 
-    } 
-   
+    } */
+
 
     // Update is called once per frame
     void Update()
-    {   
-        if(transform.position.y < -12)//hukki
+    {
+        if (Hitplayer.call == true)
         {
-            transform.position = new Vector3(-25,29,-7);
+            InvokeRepeating("Clone", 5, 10);
         }
+
+        if (transform.position.y < -12)//delete
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void Clone()
+    {
+        int z = Random.Range(-14, 0);//-14以上で、0より下の整数（つまり、-1）の間の値を返す
+
+        GameObject copied = Object.Instantiate(original) as GameObject;//oliginalをcopiする
+        copied.transform.Translate(-25, 30, z);//copiの出てくる場所を(x=-25,y=30,z=-6~7)とする
     }
 }

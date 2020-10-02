@@ -8,6 +8,8 @@ public class Sphere : MonoBehaviour
     public int count = 0;//クローン調整用
     public GameObject original;
 
+    bool loop = true;
+
     Rigidbody rb1;
     // Start is called before the first frame update
     void Start()
@@ -15,44 +17,49 @@ public class Sphere : MonoBehaviour
         rb1 = GetComponent<Rigidbody>();
         rb1.AddForce(10, 0, 0, ForceMode.Impulse);//speed
 
-        /*GameObject original = GameObject.Find("Sphere");
-		GameObject copied = Object.Instantiate(original) as GameObject;
-		copied.transform.Translate(-25,30,);*/
+        StartCoroutine("Clone1");
+
     }
-    //public static Object Instantiate(Object original, Vector3 position, Quaterinon rotation);
-
-    /*IEnumerator Pear() //voidは、return値がない型
-    {   
-        if(count == 0)
-        {
-　 　       StartCoroutine("stay");//  private IEnumerator stay()  を呼び出す
-            yield return new WaitForSeconds(3.0f);
-        }
-    }
-    private IEnumerator stay()//コルーチン関数の名前
-    {
-        yield return new WaitForSeconds(2.0f);//2秒待つ
-
-        int z = Random.Range (-6,8);//-6以上で、8より下の整数（つまり、7）の間の値を返す
-
-        GameObject original = GameObject.Find("Sphere");//Sphereをoriginalとする
-        GameObject copied = Object.Instantiate(original) as GameObject;//oliginalをcopiする
-	    copied.transform.Translate(-25,30,z);//copiの出てくる場所を(x=-25,y=30,z=-6~7)とする
-
-    } */
-
 
     // Update is called once per frame
     void Update()
     {
         if (Hitplayer.call == true)
         {
-            InvokeRepeating("Clone", 5, 10);
+            Debug.Log("out");
+            StartCoroutine("Clone2");
+            //InvokeRepeating("Clone", 5, 10);
+            Hitplayer.call = false;
         }
 
         if (transform.position.y < -12)//delete
         {
             Destroy(gameObject);
+        }
+    }
+
+   /* private IEnumerator Clone1(int lengh) //コルーチン関数の名前   StartCoroutine("Clone1");  の中身  IEnumerator=戻り値  lengh=長さ
+    {
+        //for(int i = 0;i >=)
+        //while ()
+        {
+            if (Hitplayer.call == true)
+            {
+                Debug.Log("out");
+                yield return StartCoroutine("Clone2");
+                //InvokeRepeating("Clone", 5, 10);
+                Hitplayer.call = false;
+            }
+        }
+    }*/
+
+    private IEnumerator Clone2() //コルーチン関数の名前   StartCoroutine("Clone2");  の中身
+    {
+        //コルーチンの内容
+        while (true)
+        {
+            Clone();
+            yield return new WaitForSeconds(2.0f);//()秒待つ
         }
     }
 

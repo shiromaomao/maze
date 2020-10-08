@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Enemy : MonoBehaviour
     {
+        //コピペ
     public float speed = 0.5f;
     public float rotationspeed = 1f;
     public float posrange = 3f;

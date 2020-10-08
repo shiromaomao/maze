@@ -13,8 +13,10 @@ public class Enemy_1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         Debug.Log(transform.position);
         Debug.Log(transform.forward);
         transform.position += transform.forward * 0.02f;
+
     }
 }

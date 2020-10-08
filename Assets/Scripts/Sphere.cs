@@ -10,7 +10,7 @@ public class Sphere : MonoBehaviour
 
     bool loop = true;
 
-    Rigidbody rb1;
+    Rigidbody rb1;//Rigidbodyを、rb1とする。
     // Start is called before the first frame update
     void Start()
     {
@@ -38,28 +38,13 @@ public class Sphere : MonoBehaviour
         }
     }
 
-   /* private IEnumerator Clone1(int lengh) //コルーチン関数の名前   StartCoroutine("Clone1");  の中身  IEnumerator=戻り値  lengh=長さ
-    {
-        //for(int i = 0;i >=)
-        //while ()
-        {
-            if (Hitplayer.call == true)
-            {
-                Debug.Log("out");
-                yield return StartCoroutine("Clone2");
-                //InvokeRepeating("Clone", 5, 10);
-                Hitplayer.call = false;
-            }
-        }
-    }*/
-
     private IEnumerator Clone2() //コルーチン関数の名前   StartCoroutine("Clone2");  の中身
     {
         //コルーチンの内容
         while (true)
         {
             Clone();
-            yield return new WaitForSeconds(2.0f);//()秒待つ
+            yield return new WaitForSeconds(1.0f);//()秒待つ
         }
     }
 

@@ -50,6 +50,7 @@ public class MovingFloor : MonoBehaviour
                 yield return new WaitForSeconds(15.0f);
             }
         }
+        
         while (m_xPlus == false) //falseの間波括弧の中を繰り返す
         {
             rb.velocity = new Vector3(-12, 0, 0);

@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
         if (transform.position.y < -60) //or (Input.GetKey("S"))
         {
             transform.position = new Vector3(8.3f, 2, 8.5f);
-            //transform.rotation = (new Vector3(0,-90,0));
+            //transform.rotation = new Vector3(0f,-90,0);
         }
 
         scoreText.text = "Key:" + Keyget;

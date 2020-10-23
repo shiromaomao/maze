@@ -11,36 +11,22 @@ public class Enemy_1 : MonoBehaviour
     void Start()
     {
         E1T = this.gameObject.GetComponent<Transform>();// グローバル変数E1Tへ入れる
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        while (m_zPlus)
+        if (E1T.position.z >= 4)
         {
-            Debug.Log(transform.position);
-            Debug.Log(transform.forward);
-            transform.position += transform.forward * 0.05f;//0.02
-
-            if (E1T.position.z == 5)
-            {
-                m_zPlus = false;
-
-            }
-        }
-        while (m_zPlus == false)
-        {
-            Debug.Log(transform.position);
-            Debug.Log(transform.forward);
-            transform.position += transform.forward * -0.05f;//-0.02
-
-            if (E1T.position.z ==　-8)
-            {
-                m_zPlus = true;
-
-            }
+            transform.Rotate(0, 180, 0, Space.World);
         }
 
+        if (E1T.position.z <= -7)
+        {
+            transform.Rotate(0, 180, 0, Space.World);
+        }
+
+        transform.position += transform.forward * 0.05f;//0.02
     }
+
 }

@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-public class Enemy : MonoBehaviour
-{//コピペ
-  public Transform[] points;
+public class testtest : MonoBehaviour
+{//コピペ2
+
+    public Transform[] points;
     private int destPoint = 0;
     private NavMeshAgent agent;
 

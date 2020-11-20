@@ -21,14 +21,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-      /*  if (Input.GetKey("w"))//wを押し続けたら、飛べてしまう
-        {
-            if (Player)
-            {
-                GetComponent<Rigidbody>().velocity = new Vector3(0f, 5f, 0f);
-            }
-        }*/
-
 
         if (Input.GetKey("up"))
         {
@@ -49,11 +41,18 @@ public class Player : MonoBehaviour
         {
             transform.position -= transform.forward * 0.1f;
         }
-        //andと、orの方法がわからないから一旦放置。とりま、完成目指す！！
-        if (transform.position.y < -60) //or (Input.GetKey("S"))
+        
+        if (transform.position.y < -60) 
         {
             transform.position = new Vector3(8.3f, 2, 8.5f);
-            //transform.rotation = new Vector3(0f,-90,0);
+            float y = -90;
+            this.transform.rotation = Quaternion.Euler(0.0f, y, 0.0f);
+        }
+        if (Input.GetKey("s"))
+        {
+            transform.position = new Vector3(8.3f, 2, 8.5f);
+            float y = -90;
+            this.transform.rotation = Quaternion.Euler(0.0f, y, 0.0f);
         }
 
         scoreText.text = "Key:" + Keyget;

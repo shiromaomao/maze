@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurnWall : MonoBehaviour
+public class InterferenceWall : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0, 1, 0);
+        transform.Rotate(0, 0, -4);
     }
 }

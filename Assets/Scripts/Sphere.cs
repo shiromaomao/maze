@@ -44,7 +44,7 @@ public class Sphere : MonoBehaviour
         while (true)
         {
             Clone();
-            yield return new WaitForSeconds(1.0f);//()秒待つ
+            yield return new WaitForSeconds(2.0f);//()秒待つ
         }
     }
 

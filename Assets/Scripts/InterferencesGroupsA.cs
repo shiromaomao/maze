@@ -31,7 +31,7 @@ public class InterferencesGroupsA : MonoBehaviour
 
         while( m_yPlus )　//trueの間波括弧の中を繰り返す
         {
-            transform.position += new Vector3(0f,0.05f,0f);
+            transform.position += new Vector3(0f,0.1f,0f);
 　　　　　   yield return new WaitForSeconds(0.05f);
           
             if( transform.position.y >= 23.9f )
@@ -43,7 +43,7 @@ public class InterferencesGroupsA : MonoBehaviour
 
         while( m_yPlus == false )　//falseの間波括弧の中を繰り返す
         {
-            transform.position -= new Vector3(0f,0.05f,0f);
+            transform.position -= new Vector3(0f,0.1f,0f);
             yield return new WaitForSeconds(0.05f);
           
             if( transform.position.y <= 21.9f )

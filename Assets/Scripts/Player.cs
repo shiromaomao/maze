@@ -20,7 +20,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if ((transform.position.x <= -26) && (transform.position.y >= -26) && (transform.position.y  <= 30))
+        {
 
+        }
         if (Input.GetKey("up"))
         {
             transform.position += transform.forward * 0.1f;
@@ -61,8 +64,15 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter(Collision col)
     {
         Debug.Log(col.gameObject.name); // ぶつかった相手の名前を取得
-        //    if (col.gameObject.tag == "Sphere")
-        if (col.gameObject.tag == "Sphere" || col.gameObject.tag == "Enemy")
+    
+        if (col.gameObject.tag == "Sphere")
+        {
+            transform.position = new Vector3(42, 20, -8);
+            float y = -90;
+            this.transform.rotation = Quaternion.Euler(0.0f, y, 0.0f);
+        }
+
+        if (col.gameObject.tag == "Enemy")
         {
             transform.position = new Vector3(8.3f, 2, 8.5f);
             float y = -90;

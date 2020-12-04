@@ -11,6 +11,7 @@ TagManager:
   - Swich
   - Sphere
   - Safe area
+  - Enemy
   layers:
   - Default
   - TransparentFX

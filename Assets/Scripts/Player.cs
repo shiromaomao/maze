@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
 
     public bool pushedSwich;
 
+    int memorycollect = 0;
+
     int Keyget = 0;
     void Start()
     {
@@ -20,29 +22,38 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if ((transform.position.x <= -26) && (transform.position.y >= -26) && (transform.position.y  <= 30))
-        {
-
-        }
-        if (Input.GetKey("up"))
+        //移動＆回転関係
+        if (Input.GetKey("up") || Input.GetKey("w"))
         {
             transform.position += transform.forward * 0.1f;
         }
 
-        if (Input.GetKey("right"))
+
+        if (Input.GetKey("down") || Input.GetKey("s"))
+        {
+            transform.position -= transform.forward * 0.1f;
+        }
+
+        if (Input.GetKey("a") )
+        {
+            transform.position -= transform.right * 0.1f;
+        }
+
+        if (Input.GetKey("d") )
+        {
+            transform.position += transform.right * 0.1f;
+        }
+
+        if (Input.GetKey("left") || Input.GetKey("q"))
+        {
+            transform.Rotate(0, -5, 0);
+        }
+        
+        if (Input.GetKey("right") || Input.GetKey("e"))
         {
             transform.Rotate(0, 5, 0);
         }
 
-        if (Input.GetKey("left"))
-        {
-            transform.Rotate(0, -5, 0);
-        }
-
-        if (Input.GetKey("down"))
-        {
-            transform.position -= transform.forward * 0.1f;
-        }
 
         if (transform.position.y < -60)
         {
@@ -51,7 +62,7 @@ public class Player : MonoBehaviour
             this.transform.rotation = Quaternion.Euler(0.0f, y, 0.0f);
         }
 
-        if (Input.GetKey("s"))
+        if (Input.GetKey("r"))
         {
             transform.position = new Vector3(8.3f, 2, 8.5f);
             float y = -90;
@@ -64,7 +75,7 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter(Collision col)
     {
         Debug.Log(col.gameObject.name); // ぶつかった相手の名前を取得
-    
+        //妨害関係
         if (col.gameObject.tag == "Sphere")
         {
             transform.position = new Vector3(42, 20, -8);
@@ -88,23 +99,6 @@ public class Player : MonoBehaviour
             }
         }
 
-        //Ereveter
-        /*if (col.gameObject.tag == "Elevator")
-        {
-            if (Keyget == col.gameObject.GetComponent<Door>().openkeynum)
-            {
-                Keyget -= col.gameObject.GetComponent<Door>().openkeynum;
-                col.gameObject.GetComponent<Door>().Open();
-            }else(Keyget > col.gameObject.GetComponent<Door>().openkeynum);//異常発生　　　要注意
-            {
-                Keyget = 0;
-                col.gameObject.GetComponent<Door>().Open();
-            }
-
-            //「=」は、1つで代入。2つで等価。
-            this.gameObject.transform.parent = col.gameObject.transform;
-        }*/
-
         if (col.gameObject.tag == "Switch" && !pushedSwich) //&&　で、「かつ」。　
         //!は、「bool」型の値を反転（否定）　例）！＝で、「異なるなら」となる。
         {
@@ -123,11 +117,6 @@ public class Player : MonoBehaviour
     {
         if (col.gameObject.tag == "Elevator")
         {
-            /*if (Keyget >= col.gameObject.GetComponent<Door>().openkeynum)
-            {
-                Keyget -= col.gameObject.GetComponent<Door>().openkeynum;
-                col.gameObject.GetComponent<Door>().Open();
-            }*/
             this.gameObject.transform.parent = null;
         }
     }
@@ -138,6 +127,12 @@ public class Player : MonoBehaviour
         {
             Destroy(col.gameObject);
             ++Keyget;
+        }
+        
+        if (col.gameObject.tag == "MemoryTip")
+        {
+            Destroy(col.gameObject);
+            ++memorycollect;
         }
     }
 }

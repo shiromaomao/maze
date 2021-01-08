@@ -7,14 +7,14 @@ public class Key : MonoBehaviour
         括弧の中の数は開けるのに必要な鍵の数
         空中迷路に必要な鍵の数　＝　８　ー　７（空中迷路で手に入る数）　＝　１
      ________________________________________________
+     l                        l                     l
+     l                        l                     l
+     l     ****              {4}     ***  ***       l
+     l_______{5}_____         l                     l
+     l               L__{2}___L_______{3}___________l
+     l               l *****  l                     l
+     l     goal     {8}      {5}       **           l
      l               l        l                     l
-     l      goal     l        l                     l
-     l              {5} **** {4}     ***  ***       l
-     l               l        l                     l
-     l_______{8}_____L__{2}___L_______{3}___________l
-     l                       l                      l
-     l      ** ***          {5}        *            l
-     l                       l                      l
      ------------------------------------------------
        2,4=red  3=grean  5=brack   */
     //Start is called before the first frame update
@@ -27,18 +27,5 @@ public class Key : MonoBehaviour
     void Update()
     {
         GetComponent<Rigidbody>().AddForce(5f, 0f, 0f);
-
     }
-
-
-
-    //void OnCollisionEnter(Collision col)
-    //{
-
-
-
-    //        { 
-    //    GetComponent<Renderer>().material.SetColor("_Color", Color.red);
-
-    //}
 }

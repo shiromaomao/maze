@@ -12,6 +12,7 @@ TagManager:
   - Sphere
   - Safe area
   - Enemy
+  - Memory Tip
   layers:
   - Default
   - TransparentFX

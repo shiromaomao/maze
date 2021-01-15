@@ -129,7 +129,7 @@ public class Player : MonoBehaviour
             ++Keyget;
         }
         
-        if (col.gameObject.tag == "MemoryTip")
+        if (col.gameObject.tag == "Memory Tip")
         {
             Destroy(col.gameObject);
             ++memorycollect;

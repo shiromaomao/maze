@@ -5,8 +5,7 @@ using UnityEngine;
 public class Enemy_1 : MonoBehaviour
 {
     public Transform E1T;
-    bool m_zPlus = true; //z軸の＋方向に移動中か？
-
+    
     // Start is called before the first frame update
     void Start()
     {

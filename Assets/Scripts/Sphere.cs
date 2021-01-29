@@ -8,17 +8,12 @@ public class Sphere : MonoBehaviour
     public int count = 0;//クローン調整用
     public GameObject original;
 
-    bool loop = true;
-
     Rigidbody rb1;//Rigidbodyを、rb1とする。
     // Start is called before the first frame update
     void Start()
     {
         rb1 = GetComponent<Rigidbody>();
         rb1.AddForce(10, 0, 0, ForceMode.Impulse);//speed
-
-        StartCoroutine("Clone1");
-
     }
 
     // Update is called once per frame

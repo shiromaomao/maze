@@ -6,7 +6,8 @@ public class DestoroyWall : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Sphere"))// もしもぶつかってきたオブジェクトのタグに(Sphere)という名前がついていたら
+        // もしもぶつかってきたオブジェクトのタグに(Sphere)または、(Rain)という名前がついていたら
+        if(other.CompareTag("Sphere") || other.CompareTag("Rain"))
         {
             Destroy(other.gameObject);// ぶつかってきたオブジェクトを破壊（削除）する
         }

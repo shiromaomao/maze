@@ -13,6 +13,20 @@ public class Rememberme : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*if(memorycollect >= 1 || > 3)//泥人形。マッドゴーレム
+        {
+
+        }
         
+        if(memorycollect >= 3 || > 5)//猿人
+        {
+            
+        }
+        
+        if(memorycollect == 5)//人
+        {
+            
+        }*/
     }
+
 }

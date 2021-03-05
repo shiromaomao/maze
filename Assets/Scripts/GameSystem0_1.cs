@@ -8,7 +8,7 @@ public class GameSystem0_1 : MonoBehaviour
     public void WakeUp()
     {
         Debug.Log("ugoita");
-        SceneManager.LoadScene("Game1");
+        SceneManager.LoadScene("Startting");
     }
 }
 

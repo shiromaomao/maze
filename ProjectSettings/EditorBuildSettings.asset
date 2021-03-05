@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Startting.unity
     guid: a80c429c2e2e90d41b6cc84fbbc658c3
   - enabled: 1
-    path: Assets/Scenes/Game1.unity
+    path: Assets/Scenes/Meiro.unity
     guid: 715d04b8eb8b34f37a42b610992a52a1
   m_configObjects: {}

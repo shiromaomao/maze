@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
     public bool pushedSwich;
 
-    int memorycollect = 0;
+    int memorycollect = 0;//memoryの数//memorycollectの数える仕組みは、一番下に
 
     int Keyget = 0;
     void Start()
@@ -104,7 +104,7 @@ public class Player : MonoBehaviour
         {
             pushedSwich = true;
             StartCoroutine("stop3");
-        }    
+        }
     }
 
     private IEnumerator stop3() //コルーチン関数の名前  StartCoroutine("stop3");  の中身

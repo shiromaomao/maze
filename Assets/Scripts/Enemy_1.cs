@@ -25,7 +25,7 @@ public class Enemy_1 : MonoBehaviour
             transform.Rotate(0, 180, 0, Space.World);
         }
 
-        transform.position += transform.forward * 0.05f;//0.05
+        transform.position += transform.forward * 0.025f;//0.025
     }
 
 }

@@ -14,8 +14,7 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
 
         // autoBraking を無効にすると、目標地点の間を継続的に移動します(agent.autoBraking = false;)
-        //(つまり、エージェントは目標地点に近づいても
-        // 速度をおとしません)
+        //(つまり、エージェントは目標地点に近づいても速度をおとしません)
         agent.autoBraking = true;
 
         GotoNextPoint();

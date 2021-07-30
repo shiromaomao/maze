@@ -6,9 +6,11 @@ public class DestoroyWall : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        // もしもぶつかってきたオブジェクトのタグに(Sphere)または、(Rain)という名前がついていたら
-        if(other.CompareTag("Sphere") || other.CompareTag("Rain"))
+        // もしもぶつかってきたオブジェクトのタグに(Sphere)または、(Rain)または、(Bubble)という名前がついていたら
+        Debug.Log("touch");
+        if (other.CompareTag("Sphere") || other.CompareTag("Rain") || other.CompareTag("Bubble"))
         {
+            Debug.Log("Destory");
             Destroy(other.gameObject);// ぶつかってきたオブジェクトを破壊（削除）する
         }
     }

@@ -15,6 +15,11 @@ public class Player : MonoBehaviour
     int Keyget = 0;
     void Start()
     {
+        transform.position = new Vector3(8.3f, 2, 8.5f);
+        float y = -90;
+        this.transform.rotation = Quaternion.Euler(0.0f, y, 0.0f);//初期位置に飛ばす
+
+
         pushedSwich = false;
         scoreText.text = "Key: 0"; //初期スコアを代入して表示
     }
@@ -25,44 +30,37 @@ public class Player : MonoBehaviour
         //移動＆回転関係
         if (Input.GetKey("up") || Input.GetKey("w"))
         {
-            transform.position += transform.forward * 0.1f;
+            transform.position += transform.forward * 0.05f;
         }
 
 
         if (Input.GetKey("down") || Input.GetKey("s"))
         {
-            transform.position -= transform.forward * 0.1f;
+            transform.position -= transform.forward * 0.01f;
         }
 
         if (Input.GetKey("a") )
         {
-            transform.position -= transform.right * 0.1f;
+            transform.position -= transform.right * 0.05f;
         }
 
         if (Input.GetKey("d") )
         {
-            transform.position += transform.right * 0.1f;
+            transform.position += transform.right * 0.05f;
         }
 
         if (Input.GetKey("left") || Input.GetKey("q"))
         {
-            transform.Rotate(0, -5, 0);
+            transform.Rotate(0, -2.5f, 0);
         }
         
         if (Input.GetKey("right") || Input.GetKey("e"))
         {
-            transform.Rotate(0, 5, 0);
+            transform.Rotate(0, 2.5f, 0);
         }
 
-
-        if (transform.position.y < -60)
-        {
-            transform.position = new Vector3(8.3f, 2, 8.5f);
-            float y = -90;
-            this.transform.rotation = Quaternion.Euler(0.0f, y, 0.0f);
-        }
-
-        if (Input.GetKey("r"))
+        
+        if (transform.position.y < -60 || Input.GetKey("r"))
         {
             transform.position = new Vector3(8.3f, 2, 8.5f);
             float y = -90;
